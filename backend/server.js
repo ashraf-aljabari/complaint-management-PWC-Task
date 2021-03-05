@@ -3,8 +3,13 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/db.js';
 import cors from 'cors';
+// middleware imports
+
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
+
+// routes imports
 import userRoutes from './routes/userRoutes.js';
+import complaintRoutes from './routes/complaintRoutes.js';
 
 // env files configuration
 dotenv.config();
@@ -25,7 +30,7 @@ app.use(cors());
 app.use('/api/users', userRoutes);
 
 // Complains routes
-// app.use('/api/complaints');
+app.use('/api/complaints', complaintRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');

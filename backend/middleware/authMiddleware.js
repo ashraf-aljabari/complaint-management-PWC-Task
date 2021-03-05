@@ -4,7 +4,7 @@ import User from '../models/userModel.js';
 
 // checking logged in user token
 // to access authorized routes.
-const protected = asyncHandler(async (req, res, next) => {
+const protect = asyncHandler(async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -13,7 +13,7 @@ const protected = asyncHandler(async (req, res, next) => {
     try {
       token = req.headers.authorization.split(' ')[1];
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await User.findById(decodedToken.id).isSelected('-password');
+      req.user = await User.findById(decodedToken.id).select('-password');
       next();
     } catch (error) {
       console.error(error);
@@ -40,4 +40,4 @@ const admin = (req, res, next) => {
   }
 };
 
-export { protected, admin };
+export { protect, admin };

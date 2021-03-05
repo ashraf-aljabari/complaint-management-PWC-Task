@@ -19,10 +19,13 @@ const complaintSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
+    user_name: {
+      type: String,
+      required: true,
+    },
     complaint_text: {
       type: String,
       required: true,
-      unique: true,
     },
     comments: [commentSchema],
     numberOfComments: {
@@ -32,7 +35,7 @@ const complaintSchema = mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['resolved', ', pending', 'dismissed'],
+      enum: ['resolved', 'pending', 'dismissed'],
       default: 'pending',
     },
   },

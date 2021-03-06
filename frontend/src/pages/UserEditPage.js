@@ -10,10 +10,12 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
+// Redux imports
 import { useDispatch, useSelector } from 'react-redux';
 import { USER_UPDATE_RESET } from '../redux/constants/userConstants';
 import { getUserDetails, updateUser } from '../redux/actions/userActions';
 
+// Material UI style
 const useStyles = makeStyles((theme) => ({
   form: {
     textAlign: 'center',
@@ -34,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// admins can edit users account modifying
+// there names or emails or promote them to admins
 const UserEditPage = ({ match, history }) => {
   const userId = match.params.id;
   const [name, setName] = useState('');
@@ -98,11 +102,14 @@ const UserEditPage = ({ match, history }) => {
             onChange={(e) => setEmail(e.target.value)}
             fullWidth
           />
-          <Checkbox
-            checked={isAdmin}
-            onChange={(e) => setIsAdmin(e.target.checked)}
-            inputProps={{ 'aria-label': 'primary checkbox' }}
-          />
+          <Typography>
+            Admin
+            <Checkbox
+              checked={isAdmin}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+              inputProps={{ 'aria-label': 'primary checkbox' }}
+            />
+          </Typography>
           {error && <Alert severity='error'>{error}</Alert>}
           {message && <Alert severity='error'>{message}</Alert>}
           <Button

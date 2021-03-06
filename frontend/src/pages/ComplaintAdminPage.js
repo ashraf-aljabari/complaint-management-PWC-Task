@@ -44,7 +44,7 @@ function a11yProps(index) {
     'aria-controls': `vertical-tabpanel-${index}`,
   };
 }
-
+// Material UI style
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Admin can view all complaints and edit them.
 const ComplaintAdminPage = ({ history }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);

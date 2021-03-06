@@ -20,6 +20,9 @@ import {
   COMPLAINT_UPDATE_SUCCESS,
 } from '../constants/complaintsConstants';
 
+// Redux actions
+
+// Fetch all users complaints
 export const listComplaints = () => async (dispatch) => {
   try {
     dispatch({ type: COMPLAINT_LIST_REQUEST });
@@ -41,6 +44,7 @@ export const listComplaints = () => async (dispatch) => {
   }
 };
 
+// getting single complaint detail.
 export const listComplaintDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: COMPLAINT_DETAILS_REQUEST });
@@ -62,6 +66,7 @@ export const listComplaintDetails = (id) => async (dispatch) => {
   }
 };
 
+// creating complaint.
 export const createComplaint = (complaint_text) => async (
   dispatch,
   getState
@@ -103,6 +108,7 @@ export const createComplaint = (complaint_text) => async (
   }
 };
 
+// creating complaint comment.
 export const createComplaintComment = (complaintId, comment) => async (
   dispatch,
   getState
@@ -146,6 +152,7 @@ export const createComplaintComment = (complaintId, comment) => async (
   }
 };
 
+// listing single user complaints to show them in his profile page.
 export const listMyComplaints = () => async (dispatch, getState) => {
   try {
     dispatch({
@@ -180,6 +187,7 @@ export const listMyComplaints = () => async (dispatch, getState) => {
   }
 };
 
+// To let the admin update complaint status
 export const updateComplaint = (complaint_status, complaint_id) => async (
   dispatch,
   getState

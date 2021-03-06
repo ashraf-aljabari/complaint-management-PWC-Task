@@ -17,6 +17,8 @@ import {
 } from '../redux/actions/complaintActions';
 import { COMPLAINT_CREATE_RESET } from '../redux/constants/complaintsConstants';
 
+// landing page containing all users complains
+// and user can comment on each other's complaints
 const HomePage = () => {
   const [complaintText, setComplaintText] = useState('');
   const [errorText, setErrorText] = useState('');

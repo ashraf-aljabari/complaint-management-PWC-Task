@@ -57,6 +57,7 @@ function a11yProps(index) {
   };
 }
 
+// Material UI style
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -107,6 +108,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 }));
+
+// profile page the previews the user information and
+// he can edit his information and view his complaints
 
 const ProfilePage = ({ history }) => {
   const classes = useStyles();

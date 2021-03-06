@@ -17,6 +17,8 @@ import Alert from '@material-ui/lab/Alert';
 
 // React router dom
 import { Link } from 'react-router-dom';
+
+// Material UI style
 const useStyles = makeStyles((theme) => ({
   form: {
     textAlign: 'center',
@@ -36,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
   },
 }));
+
+// logging both the users and the admins in.
 
 const LoginPage = ({ location, history }) => {
   const classes = useStyles();

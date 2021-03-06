@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ListUsers, deleteUser } from '../redux/actions/userActions';
 import { Link } from 'react-router-dom';
 
+// Material UI style
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -29,6 +30,7 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
+// view all users in the database and admins and can edit them or delete them.
 export default function UserAdminPage({ history }) {
   const classes = useStyles();
   const dispatch = useDispatch();

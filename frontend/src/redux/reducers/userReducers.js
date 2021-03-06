@@ -27,7 +27,6 @@ import {
   USER_UPDATE_SUCCESS,
 } from '../constants/userConstants';
 
-// login user reducer
 export const userLoginReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:

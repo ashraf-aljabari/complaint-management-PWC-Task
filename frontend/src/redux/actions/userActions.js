@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { COMPLAINT_LIST_MY_RESET } from '../constants/complaintsConstants';
 import {
   USER_DELETE_FAIL,
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
+  USER_DETAILS_RESET,
   USER_DETAILS_SUCCESS,
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
@@ -22,7 +24,9 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
 } from '../constants/userConstants';
+// redux user actions
 
+// fetch the email and password from the user and log the user in.
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -57,11 +61,15 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
+// logging out the user and cleaning the state.
 export const logout = () => (dispatch) => {
   localStorage.removeItem('user');
   dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_DETAILS_RESET });
+  dispatch({ type: COMPLAINT_LIST_MY_RESET });
 };
 
+// registering new user and storing them in the database.
 export const register = (name, email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -102,6 +110,8 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 
+// getting single user details for users.
+// and getting user details for admins.
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -139,6 +149,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
   }
 };
 
+// updating user information.
 export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -178,6 +189,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   }
 };
 
+// listing all users in the admin dashboard.
 export const ListUsers = () => async (dispatch, getState) => {
   try {
     dispatch({
@@ -211,6 +223,7 @@ export const ListUsers = () => async (dispatch, getState) => {
   }
 };
 
+// deleting user from the database, requires admin role.
 export const deleteUser = (id) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -243,6 +256,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
   }
 };
 
+// updating user details, requires admin role.
 export const updateUser = (user) => async (dispatch, getState) => {
   try {
     dispatch({

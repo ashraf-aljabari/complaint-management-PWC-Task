@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// customers can sing-up here to post there complaints
 const SignupPage = ({ location, history }) => {
   const classes = useStyles();
   const [name, setName] = useState('');

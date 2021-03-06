@@ -42,6 +42,7 @@ import TimeAgo from 'timeago-react';
 import CommentCard from '../components/Comment';
 import Alert from '@material-ui/lab/Alert';
 
+// Material UI style
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 600,
@@ -74,6 +75,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// single complaint page cna be viewed
+// here and view the comments of the complaint and comment on it
 const ComplaintPage = ({ history, match }) => {
   const classes = useStyles();
   const [comment, setComment] = useState('');

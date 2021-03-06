@@ -1,15 +1,20 @@
 import mongoose from 'mongoose';
 
 // Complaint comments model schema
-const commentSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  comment: { type: String, required: true },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'User',
+const commentSchema = mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    comment: { type: String, required: true },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
   },
-});
+  {
+    timestamps: true,
+  }
+);
 
 // Complaint Model Schema.
 const complaintSchema = mongoose.Schema(

@@ -11,6 +11,7 @@ import {
 } from '../controllers/complaintController.js';
 const router = express.Router();
 
+router.post('/:id/comments', protect, createComment);
 router.route('/').get(getComplaints).post(protect, createComplaint);
 router.route('/mycomplaints').get(protect, getMyComplaints);
 router
@@ -18,6 +19,6 @@ router
   .get(getComplaintById)
   .delete(protect, admin, deleteComplaint)
   .put(protect, admin, updateComplaint);
-router.route('/:id/comment').post(protect, createComment);
+// router.route('comment/:id').post(protect, createComment);
 
 export default router;

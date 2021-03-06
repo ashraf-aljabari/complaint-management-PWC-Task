@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import connectDB from './config/db.js';
 import cors from 'cors';
+import http from 'http';
 // middleware imports
 
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';

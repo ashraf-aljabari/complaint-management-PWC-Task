@@ -5,7 +5,9 @@ import Complaint from '../models/complaintModel.js';
 // --Route: GET /api/complaints
 // --Access: Public
 const getComplaints = asyncHandler(async (req, res) => {
-  const complaints = await Complaint.find({});
+  const complaints = await Complaint.find({})
+    .sort({ createdAt: 'desc' })
+    .exec();
   res.json(complaints);
 });
 
